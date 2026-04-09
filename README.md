@@ -43,7 +43,7 @@ dotnet build .\IPTVPlayer.sln -c Release
 powershell -ExecutionPolicy Bypass -File .\scripts\ensure-mpv.ps1
 ```
 
-这个脚本会下载锁定版本的 `shinchiro` Windows `libmpv` 开发包，校验 SHA256 后提取 `libmpv-2.dll`，并在本地放到 `mpv\mpv-2.dll`。
+这个脚本会使用 `Invoke-WebRequest -UserAgent "Wget"` 从 SourceForge 获取锁定版本的 `shinchiro` Windows `libmpv` 开发包，校验文件类型和 SHA256 后提取 `libmpv-2.dll`，并在本地放到 `mpv\mpv-2.dll`。
 
 如果缺少 `mpv\mpv-2.dll`，项目仍可编译，但播放器无法实际播放视频。
 

@@ -27,6 +27,7 @@ powershell -ExecutionPolicy Bypass -File .\installer\build-installer.ps1
 ```
 
 这个脚本会自动检查本地 `mpv\mpv-2.dll`，缺失时尝试准备运行库，再执行 `publish` 和 Inno Setup 打包。
+`ensure-mpv.ps1` 会使用 `Invoke-WebRequest -UserAgent "Wget"` 从 SourceForge 下载并校验锁定版本的 `libmpv` 包。
 
 ## 提交前约定
 
